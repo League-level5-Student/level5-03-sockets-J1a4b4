@@ -24,13 +24,13 @@ public class ClientGreeter {
 			Socket socket = new Socket(ipadd, port);
 			// 5. Create a DataOutputStream object. When initializing it, use the Socket
 			// object you created in step 4 to call the getOutputStream() method.
-			DataOutputStream stream = (DataOutputStream) socket.getOutputStream();
+			DataOutputStream stream = new DataOutputStream(socket.getOutputStream());
 			// 6. Use the DataOutputStream object to send a message to the server using the
 			// writeUTF(String message) method
 			stream.writeUTF("Hello from Client");
 			// 7. Create a DataInputStream object. When initializing it, use the Server
 			// object you created in step 4 to call the getInputStream() method.
-			DataInputStream istream = (DataInputStream) socket.getInputStream();
+			DataInputStream istream = new DataInputStream(socket.getInputStream());
 			// 8. Use the DataInputStream object to print a message from the server using
 			// the readUTF() method.
 			System.out.println(istream.readUTF());
